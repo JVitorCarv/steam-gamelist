@@ -11,6 +11,7 @@ response = urlopen(url)
 json_load = json.loads(response.read())
 
 gamelist = []
+count = json_load['response']['game_count']
 data = json_load['response']['games']
 for game in data:
     gamelist.append(game['name'])
@@ -18,3 +19,5 @@ for game in data:
 gamelist.sort()
 for name in gamelist:
     print(name)
+
+print(f'\nTotal: {count}')
