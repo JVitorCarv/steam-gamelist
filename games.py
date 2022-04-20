@@ -1,7 +1,14 @@
+from urllib.request import urlopen
 import json
 
-with open('steamgames.json', 'r', encoding="utf8") as json_file:
-    json_load = json.load(json_file)
+key = input('Inform your API key: ')
+id = input('Inform your steam ID: ')
+
+url = f'http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key={key}&steamid={id}&format=json&include_appinfo=true&include_played_free_games=true'
+
+response = urlopen(url)
+
+json_load = json.loads(response.read())
 
 gamelist = []
 data = json_load['response']['games']
