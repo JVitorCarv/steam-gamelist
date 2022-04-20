@@ -21,3 +21,19 @@ for name in gamelist:
     print(name)
 
 print(f'\nTotal: {count}')
+
+answer = ''
+print('Do you wish to save your games in a txt file? Y/N')
+while(answer != 'Y' and answer != 'N'):
+    answer = input()
+    answer = answer.upper()
+
+
+if answer == 'Y':
+    with open('list_of_games.txt', 'w+', encoding='utf-8') as file:
+        for name in gamelist:
+            file.write(f'{name}\n')
+        file.write(f'\nTotal games: {count}')
+        print('File saved')
+
+print('Good bye')
