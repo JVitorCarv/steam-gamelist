@@ -8,5 +8,6 @@ data = json_load['response']['games']
 for game in data:
     gamelist.append(game['name'])
 
+gamelist.sort()
 for name in gamelist:
     print(name)
